@@ -1,6 +1,12 @@
 @extends('app')
 
 @section('styles')
+    <link  href="{{asset('css/general.css')}}" rel="stylesheet">
+    <style>
+        .bg-mynav {
+        background-color: #2c3e50;
+        }
+    </style>
 @endsection
 
 @section('content')
@@ -12,14 +18,12 @@
             <!-- BEGIN BODY -->
         <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: auto;">
             <tr>
-            <td valign="middle" class="bg_white" style="BACKGROUND: #e2e8f0;padding: 1em 2.5em;">
-                <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td valign="middle" class="logo" style="text-align: center;">
-                            <h1><a href="#">Treehouse</a></h1>
-                        </td>
-                    </tr>
-                </table>
+            <td valign="middle" class="bg_white" >
+            <nav class="navbar navbar-dark bg-mynav">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">Treehouse</a>
+                </div>
+            </nav>
             </td>
             </tr><!-- end tr -->
             <tr>
@@ -84,17 +88,6 @@
                                 </div>
                                 </td>
                             </tr>
-                            <!-- <tr>
-                                <td>
-                                <div class="project-entry">
-                                    <img src="images/work-4.jpg" alt="" style="width: 100%; max-width: 600px; height: auto; margin: auto; display: block;">
-                                    <div class="text-project" style="text-align: center;">
-                                        <h3><a href="#">Album Name</a></h3>
-                                        <span>Model</span>
-                                    </div>
-                                </div>
-                                </td>
-                            </tr> -->
                             </table>
                         </td>
 
@@ -127,7 +120,7 @@
                             <tr>
                                 <td>
                                 <div class="project-entry">
-                                    <img src="images/work-7.jpg" alt="" style="width: 100%; max-width: 600px; height: auto; margin: auto; display: block;">
+                                    <img  src="images/work-7.jpg" alt="" style="width: 100%; max-width: 600px; height: auto; margin: auto; display: block;">
                                     <div class="text-project" style="text-align: center;">
                                         <h3><a href="#">Album Name</a></h3>
                                         <span>Fashion</span>
@@ -135,29 +128,17 @@
                                 </div>
                                 </td>
                             </tr>
-                            <!-- <tr>
-                                <td>
-                                <div class="project-entry">
-                                    <img src="images/work-8.jpg" alt="" style="width: 100%; max-width: 600px; height: auto; margin: auto; display: block;">
-                                    <div class="text-project" style="text-align: center;">
-                                        <h3><a href="#">Album Name</a></h3>
-                                        <span>Nature</span>
-                                    </div>
-                                </div>
-                                </td>
-                            </tr> -->
                             </table>
                         </td>
                         </tr>
                             </table>
                         </td>
-                    </tr><!-- end: tr -->
+                    </tr>
 
                     </table>
 
                 </td>
-                </tr><!-- end:tr -->
-        <!-- 1 Column Text + Button : END -->
+                </tr>
         </table>
         <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: auto;">
             <tr>

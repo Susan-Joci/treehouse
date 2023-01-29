@@ -7,21 +7,21 @@
 @section('content')
 <nav class="navbar navbar-dark bg-mynav">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">NewsLetter</a>
+        <a class="navbar-brand" href="#">NewsLetter <i class="fas fa-newspaper"></i></a>
       </div>
     </nav>
 
     <div class="container">
       <div class="bd-highlight mb-3">
         <div class="me-auto p-2 bd-highlight">
-            <!-- <button type="button" class="btn btn-secondary create-btn" onclick="showUserCreateBox()">Create</button> -->
-            <h2>Users</h2>
+            <button type="button" class="btn btn-secondary create-btn" onclick="window.location='{{ url("/") }}'">Home <i class="fa fa-home" aria-hidden="true"></i></button>
+            <h3>
+              Users <i class="fa fa-user" aria-hidden="true"></i>
+            </h3>
             </div>
-        <div class="p-2 bd-highlight">
-        </div>
       </div>
 
-      <div class="table-responsive">
+      <div class="table-responsive tableFixHead">
         <table class="table">
           <thead>
             <tr>

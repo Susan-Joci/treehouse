@@ -36,11 +36,32 @@ class NewsletterUserController extends Controller
      */
     public function signup()
     {
+        if($this->validation()) {
+            $validator = $this->request->validate([
+                'name' => 'required',
+                'email' => 'required|email|unique:newsletter_users',
+            ]);
+            if (!is_array($validator) && $validator->fails()) {
+                return response()->json([
+                    'error' => $validator->errors()->all()
+                ]);
+            }
+
+            $name = $this->request->name;
+            $email = $this->request->email;
+        } else {
+            $name = 'John Doe';
+            $email = 'John_doe'.time().'@gmail.com';
+        }
+       
         $users = NewsletterUser::create([
-            'name' => $this->request->name,
-            'email' => $this->request->email 
+            'name' => $name,
+            'email' => $email 
         ]);
-        dd($users);
+    }
+
+    public function validation() {
+        return true;
     }
 
     /**

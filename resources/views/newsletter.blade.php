@@ -1,25 +1,7 @@
 @extends('app')
 
 @section('styles')
-<style>
-
-    .bg-mynav {
-      background-color: #2c3e50;
-    }
-    
-    body {
-      font-size: 1.25rem;
-      background-color: #f6f8fa;
-    }
-    
-    td {
-      line-height: 3rem;
-    }
-
-    .create-btn {
-        float : right;
-    }
-</style>
+  <link  href="{{asset('css/newsletter.css')}}" rel="stylesheet">
 @endsection
 
 @section('content')
@@ -32,9 +14,8 @@
     <div class="container">
       <div class="bd-highlight mb-3">
         <div class="me-auto p-2 bd-highlight">
-            <button type="button" class="btn btn-secondary create-btn" onclick="showUserCreateBox()">Create</button>
+            <!-- <button type="button" class="btn btn-secondary create-btn" onclick="showUserCreateBox()">Create</button> -->
             <h2>Users</h2>
-
             </div>
         <div class="p-2 bd-highlight">
         </div>
@@ -51,35 +32,22 @@
             </tr>
           </thead>
           <tbody id="mytable">
-            @if (false)
+            @if (count($users) == 0)
                 <tr>
-                    <th scope="row" colspan="5">NO records were found.</th>
+                    <th scope="row" colspan="5" class="txtaligncenter">No records were found.</th>
                 </tr>
             @else
-            <tr>
-              <th scope="col">1</th>
-              <th scope="col">John Doe</th>
-              <th scope="col">john@does.com</th>
-              <th scope="col"><button>Edit</button></th>
-            </tr>
-            <tr>
-              <th scope="col">1</th>
-              <th scope="col">John Doe</th>
-              <th scope="col">john@does.com</th>
-              <th scope="col"><button>Edit</button></th>
-            </tr>
-            <tr>
-              <th scope="col">1</th>
-              <th scope="col">John Doe</th>
-              <th scope="col">john@does.com</th>
-              <th scope="col"><button>Edit</button></th>
-            </tr>
-            <tr>
-              <th scope="col">1</th>
-              <th scope="col">John Doe</th>
-              <th scope="col">john@does.com</th>
-              <th scope="col"><button>Edit</button></th>
-            </tr>
+              @foreach ($users as $key=>$user)
+                  <tr>
+                    <th scope="col">{{ $key+1 }}</th>
+                    <th scope="col">{{ $user->name }}</th>
+                    <th scope="col">{{ $user->email }}</th>
+                    <th scope="col">
+                      <button onclick="showUserEditBox('{{ $user->name }}', '{{ $user->email }}' )">Edit</button>
+                      <button>Remove</button>
+                    </th>
+                  </tr>
+              @endforeach
             @endif
           </tbody>
         </table>
@@ -126,15 +94,13 @@
 
         loadTable();
 
-    function showUserCreateBox() {
+    function showUserEditBox(name, email) {
         Swal.fire({
-            title: "Create user",
+            title: "Update Your Information",
             html:
             '<input id="id" type="hidden">' +
-            '<input id="fname" class="swal2-input" placeholder="First">' +
-            '<input id="lname" class="swal2-input" placeholder="Last">' +
-            '<input id="username" class="swal2-input" placeholder="Username">' +
-            '<input id="email" class="swal2-input" placeholder="Email">',
+            '<input id="name" class="swal2-input" placeholder="Name" value="'+name+'">' +
+            '<input id="email" class="swal2-input" placeholder="Email" value="'+email+'">',
             focusConfirm: false,
             preConfirm: () => {
             userCreate();
@@ -143,30 +109,44 @@
     }
 
     function userCreate() {
-    const fname = document.getElementById("fname").value;
-    const lname = document.getElementById("lname").value;
-    const username = document.getElementById("username").value;
+    const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
-    console.log(fname,lname,username,email);
-    const xhttp = new XMLHttpRequest();
-    xhttp.open("POST", "https://www.mecallapi.com/api/users/create");
-    xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    xhttp.send(
-        JSON.stringify({
-        fname: fname,
-        lname: lname,
-        username: username,
-        email: email,
-        avatar: "https://www.mecallapi.com/users/cat.png",
-        })
-    );
-    xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-        const objects = JSON.parse(this.responseText);
-        Swal.fire(objects["message"]);
-        loadTable();
-        }
+    console.log(fname,lname,email, this);
+    var formData = {
+            fname,
+            lname,
+            email        
     };
+    $.ajax({
+      headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+        type:'POST',
+        url:'/submit',
+        data:formData,
+        success:function(data) {
+
+        }
+    });
+    // const xhttp = new XMLHttpRequest();
+    // xhttp.open("POST", "https://www.mecallapi.com/api/users/create");
+    // xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    // xhttp.send(
+    //     JSON.stringify({
+    //     fname: fname,
+    //     lname: lname,
+    //     username: username,
+    //     email: email,
+    //     avatar: "https://www.mecallapi.com/users/cat.png",
+    //     })
+    // );
+    // xhttp.onreadystatechange = function () {
+    //     if (this.readyState == 4 && this.status == 200) {
+    //     const objects = JSON.parse(this.responseText);
+    //     Swal.fire(objects["message"]);
+    //     loadTable();
+    //     }
+    // };
     }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.16/dist/sweetalert2.all.min.js"></script>

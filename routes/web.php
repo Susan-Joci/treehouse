@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\NewsletterController;
+use App\Http\Controllers\NewsletterUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +17,7 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/', [HomeController::class, 'index']);
-Route::get('/newsletter', [HomeController::class, 'newsletter'])->name('newsletter');
+Route::get('/newsletter/signup', [NewsletterUserController::class, 'signupIndex'])->name('signup');
+Route::post('/newsletter/signup', [NewsletterUserController::class, 'signup'])->name('signup_post');
+Route::get('/newsletter/users', [NewsletterUserController::class, 'index'])->name('newsletter');
+Route::post('/submit', [NewsletterController::class, 'create']);

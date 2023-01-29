@@ -35,7 +35,7 @@
                             <div class="text" style="padding: 0 4em; text-align: center;">
                                 <h2>Contractor Nation</h2>
                                 <p>Contractor Nation is dedicated to helping home improvement, repair and service contractors grow and thrive.</p>
-                                <p><a href="{{ route('newsletter') }}" class="btn btn-primary">Subscribe</a></p>
+                                <p><a href="{{ route('signup') }}" class="btn btn-primary">Subscribe</a></p>
                             </div>
                         </td>
                     </tr>

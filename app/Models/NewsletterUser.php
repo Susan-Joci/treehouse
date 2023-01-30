@@ -12,6 +12,7 @@ class NewsletterUser extends Model
     protected $fillable = [
         'name',
         'email',
+        'status',
         'created_at',
         'updated_at'
     ];

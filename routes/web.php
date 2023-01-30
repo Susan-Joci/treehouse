@@ -20,4 +20,5 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/newsletter/signup', [NewsletterUserController::class, 'signupIndex'])->name('signup');
 Route::post('/newsletter/signup', [NewsletterUserController::class, 'signup'])->name('signup_post');
 Route::get('/newsletter/users', [NewsletterUserController::class, 'index'])->name('newsletter');
+Route::post('/newsletter/users', [NewsletterUserController::class, 'usersUpdate']);
 Route::post('/submit', [NewsletterController::class, 'create']);

@@ -82,7 +82,7 @@
         <script>
             const signUpButton = document.getElementById('signupbtn');
             const back = document.getElementById('back');
-            // const signInButton = document.getElementById('signIn');
+            const signInButton = document.getElementById('signIn');
             // const container = document.getElementById('container');
 
             back.addEventListener('click', (e) => {
@@ -102,6 +102,7 @@
                         url: '/newsletter/signup',
                         data: {name:name, email:email},
                         success: function( msg ) {
+                            $("#success_label").remove();
                             $(".signupcontainer").after(`<div id="success_label" class="success_label">Congratulations! User Created.</div>`);
                             $("#name, #email").val('');
                             $("#alert_name").removeClass('error_label').html('');

@@ -11,7 +11,6 @@ class NewsletterUserController extends Controller
 
     public function __construct(Request $request)
     {
-        // $this->middleware('auth');
         $this->request = $request;
     }
 
@@ -65,58 +64,17 @@ class NewsletterUserController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\NewsletterUser  $newsletterUser
-     * @return \Illuminate\Http\Response
-     */
-    public function show(NewsletterUser $newsletterUser)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\NewsletterUser  $newsletterUser
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(NewsletterUser $newsletterUser)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\NewsletterUser  $newsletterUser
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, NewsletterUser $newsletterUser)
+    public function usersUpdate()
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\NewsletterUser  $newsletterUser
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(NewsletterUser $newsletterUser)
-    {
-        //
+        $users = NewsletterUser::where('id',  $this->request['user_id'])
+        ->update([
+            'status' => $this->request['status']=='true' ? 1 :0
+        ]);
     }
 }

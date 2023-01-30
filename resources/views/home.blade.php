@@ -49,7 +49,7 @@
                         <td class="bg_white email-section">
                             <div class="heading-section" style="text-align: center; padding: 0 30px;">
                             <h2>Gallery</h2>
-                            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                            <p>Contractor Nation was founded in 1990 with a simple goal: create the greatest level of success possible for home improvement contractors.</p>
                             </div>
                             <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
                                 <tr>

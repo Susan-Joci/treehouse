@@ -14,6 +14,11 @@
             font-size: 86%;
             font-style: italic;
             width:100%;
+        } 
+        .success_label {
+            color: green;
+            font-size: 86%;
+            width:100%;
         }   
     </style>
 @endsection
@@ -23,7 +28,7 @@
         <div class="form-container sign-up-container">
             <form id="form" action="#">
                 <h1>Create Account</h1>
-                <div class="social-container">
+                <div class="social-container signupcontainer">
                     <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
                     <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
@@ -77,8 +82,8 @@
         <script>
             const signUpButton = document.getElementById('signupbtn');
             const back = document.getElementById('back');
-            const signInButton = document.getElementById('signIn');
-            const container = document.getElementById('container');
+            // const signInButton = document.getElementById('signIn');
+            // const container = document.getElementById('container');
 
             back.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -86,7 +91,6 @@
             });
 
             signUpButton.addEventListener('click', (e) => {
-                    console.log("this");
                     e.preventDefault(); 
                     var name = $('#name').val();
                     var email = $('#email').val();
@@ -98,12 +102,18 @@
                         url: '/newsletter/signup',
                         data: {name:name, email:email},
                         success: function( msg ) {
-                            location.reload(); 
+                            $(".signupcontainer").after(`<div id="success_label" class="success_label">Congratulations! User Created.</div>`);
+                            $("#name, #email").val('');
+                            $("#alert_name").removeClass('error_label').html('');
+                            $("#name").removeClass('error_field');
+                            $("#alert_email").removeClass('error_label').html('');
+                            $("#email").removeClass('error_field');
+                            
                         },
                         error: function(xhr) { // if error occured
                             console.log(xhr.responseJSON);
+                            $("#success_label").remove();
                             $.each( xhr.responseJSON.errors, function( key, value ) {
-                                console.log(value);
                                 $("#alert_"+key).addClass('error_label').html(value);
                                 $("#"+key).addClass('error_field');
                             });

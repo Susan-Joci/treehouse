@@ -58,10 +58,8 @@
                             <tr>
                                 <td>
                                 <div class="project-entry">
-                                    <img src="images/work-1.jpg" alt="" style="width: 100%; max-width: 600px; height: auto; margin: auto; display: block;">
+                                    <img src="images/img1.jpg" alt="" style="width: 100%; max-width: 600px; height: auto; margin: auto; display: block;">
                                     <div class="text-project" style="text-align: center;">
-                                        <h3><a href="#">Album Name</a></h3>
-                                        <span>Fashion</span>
                                     </div>
                                 </div>
                                 </td>
@@ -69,10 +67,8 @@
                             <tr>
                                 <td>
                                 <div class="project-entry">
-                                    <img src="images/work-2.jpg" alt="" style="width: 100%; max-width: 600px; height: auto; margin: auto; display: block;">
+                                    <img src="images/img2.jpg" alt="" style="width: 100%; max-width: 600px; height: auto; margin: auto; display: block;">
                                     <div class="text-project" style="text-align: center;">
-                                        <h3><a href="#">Album Name</a></h3>
-                                        <span>Nature</span>
                                     </div>
                                 </div>
                                 </td>
@@ -80,10 +76,8 @@
                             <tr>
                                 <td>
                                 <div class="project-entry">
-                                    <img src="images/work-3.jpg" alt="" style="width: 100%; max-width: 600px; height: auto; margin: auto; display: block;">
+                                    <img src="images/img3.jpg" alt="" style="width: 100%; max-width: 600px; height: auto; margin: auto; display: block;">
                                     <div class="text-project" style="text-align: center;">
-                                        <h3><a href="#">Album Name</a></h3>
-                                        <span>Animals</span>
                                     </div>
                                 </div>
                                 </td>
@@ -98,10 +92,8 @@
                             <tr>
                                 <td>
                                 <div class="project-entry">
-                                    <img src="images/work-5.jpg" alt="" style="width: 100%; max-width: 600px; height: auto; margin: auto; display: block;">
+                                    <img src="images/img5.jpg" alt="" style="width: 100%; max-width: 600px; height: auto; margin: auto; display: block;">
                                     <div class="text-project" style="text-align: center;">
-                                        <h3><a href="#">Album Name</a></h3>
-                                        <span>Photography</span>
                                     </div>
                                 </div>
                                 </td>
@@ -109,10 +101,8 @@
                             <tr>
                                 <td>
                                 <div class="project-entry">
-                                    <img src="images/work-6.jpg" alt="" style="width: 100%; max-width: 600px; height: auto; margin: auto; display: block;">
+                                    <img src="images/img6.jpg" alt="" style="width: 100%; max-width: 600px; height: auto; margin: auto; display: block;">
                                     <div class="text-project" style="text-align: center;">
-                                        <h3><a href="#">Album Name</a></h3>
-                                        <span>Fashion</span>
                                     </div>
                                 </div>
                                 </td>
@@ -120,10 +110,8 @@
                             <tr>
                                 <td>
                                 <div class="project-entry">
-                                    <img  src="images/work-7.jpg" alt="" style="width: 100%; max-width: 600px; height: auto; margin: auto; display: block;">
+                                    <img  src="images/img7.jpg" alt="" style="width: 100%; max-width: 600px; height: auto; margin: auto; display: block;">
                                     <div class="text-project" style="text-align: center;">
-                                        <h3><a href="#">Album Name</a></h3>
-                                        <span>Fashion</span>
                                     </div>
                                 </div>
                                 </td>
